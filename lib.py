@@ -9,6 +9,22 @@ from math import exp, log, fabs
 from math import pi, cos, sin
 from scipy.stats import beta
 
+
+def uniform_CDF(x, a, b):
+    if x > b:
+        return 1
+    elif x < a:
+        return 0
+    else:
+        return (x - a) / (b - a)
+
+def uniform_PDF(x, a, b):
+    if x > b or x < a:
+        return 0
+    else:
+        return 1 / (b - a)
+
+
 def Revenue(F, A, v, sign = 1.0):
     return sign * (np.dot(np.array([[1 - F(element) for element in v]]), A).dot(v.reshape((v.shape[0], 1)))[0, 0])
 
